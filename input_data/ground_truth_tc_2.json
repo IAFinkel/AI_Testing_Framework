@@ -1,0 +1,92 @@
+{
+  "planner": [
+    {
+      "step": 1,
+      "agent": "PlannerAgent",
+      "goal": "Execute authentication protocol and pull broadband subscription metadata for support eligibility."
+    },
+    {
+      "step": 3,
+      "agent": "PlannerAgent",
+      "goal": "Initiate advanced network diagnostics via the specialized sub-module to resolve connectivity degradation."
+    },
+    {
+      "step": 5,
+      "agent": "PlannerAgent",
+      "goal": "Acknowledge remote fix failure; escalate to field engineering by defining incident severity and technician requirements."
+    },
+    {
+      "step": 7,
+      "agent": "PlannerAgent",
+      "goal": "Complete the ticketing lifecycle by dispatching confirmation and expected resolution timeframes to the client."
+    }
+  ],
+  "router": [
+    {
+      "step": 2,
+      "router": "RouterAgent",
+      "log": "Querying database for user credentials and plan details.",
+      "action": "Invoke Tool",
+      "tool": "AccountLookupTool",
+      "tool_input": {
+        "email": "priya.sharma@example.com",
+        "service_type": "Broadband"
+      }
+    },
+    {
+      "step": 4,
+      "router": "RouterAgent",
+      "log": "Transferring session to DiagnosticSubAgent for hardware-level telemetry analysis.",
+      "action": "Route to Sub-Agent",
+      "route_to": "DiagnosticSubAgent"
+    },
+    {
+      "step": 6,
+      "router": "RouterAgent",
+      "log": "Terminal error in remote recovery. Transitioning to CreateTicketTool for manual intervention.",
+      "action": "Invoke Tool",
+      "tool": "CreateTicketTool",
+      "tool_input": {
+        "customer_name": "Priya Sharma",
+        "issue_category": "Hardware Failure",
+        "priority": "High",
+        "description": "Router 'R-404' power-cycle and firmware reset failed to restore signal."
+      }
+    },
+    {
+      "step": 8,
+      "router": "RouterAgent",
+      "log": "Validating ticket submission and pushing automated SMS update.",
+      "action": "Invoke Tool",
+      "tool": "NotificationTool",
+      "tool_input": {
+        "channel": "SMS",
+        "recipient": "+91-9876543210",
+        "message": "Your technical support ticket TIX-5521 has been created. A technician will visit within 24 hours."
+      }
+    }
+  ],
+  "tools": [
+    {
+      "tool": "AccountLookupTool",
+      "output": "Account Verified: Priya Sharma. Status: Active. Plan: Ultra-Fiber 500Mbps."
+    },
+    {
+      "tool": "DiagnosticSubAgent",
+      "output": "Diagnostic Complete: Remote reset unsuccessful. Optical signal strength below threshold (-32dBm). Physical inspection required."
+    },
+    {
+      "tool": "CreateTicketTool",
+      "output": {
+        "ticket_id": "TIX-5521",
+        "status": "Queued",
+        "assigned_department": "Field Engineering",
+        "sla_resolution_time": "24 Hours"
+      }
+    },
+    {
+      "tool": "NotificationTool",
+      "output": "SMS notification successfully delivered to recipient."
+    }
+  ]
+}

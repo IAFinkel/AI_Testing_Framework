@@ -1,0 +1,4 @@
+.env
+.deepeval/
+.deepeval-cache.json
+.deepeval_telemetry.txt.DS_Store

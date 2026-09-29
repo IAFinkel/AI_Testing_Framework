@@ -1,0 +1,53 @@
+{
+  "user_request": "Plan a 3-day itinerary for Paris with cultural landmarks and local cuisine.",
+  "planner": [
+    {
+      "step": 1,
+      "agent": "ai",
+      "goal": "Sure! Let me create an itinerary for you. I'll use my itinerary generator tool first."
+    },
+    {
+      "step": 3,
+      "agent": "ai",
+      "goal": "Here's the basic itinerary. Now, I'll also find some good restaurants in Paris."
+    },
+    {
+      "step": 5,
+      "agent": "ai",
+      "goal": "Here's your 3-day Paris itinerary:\n\nDay 1: Eiffel Tower, dinner at Le Jules Verne.\nDay 2: Louvre Museum, lunch at Angelina Paris.\nDay 3: Montmartre, evening at a wine bar."
+    }
+  ],
+  "router": [
+    {
+      "step": 2,
+      "router": "tool_call",
+      "log": "Creates travel plans based on destination and duration.",
+      "action": "Invoke Tool",
+      "tool": "Itinerary Generator",
+      "tool_input": {
+        "destination": "Paris",
+        "days": 3
+      }
+    },
+    {
+      "step": 4,
+      "router": "tool_call",
+      "log": "Finds top restaurants in a city.",
+      "action": "Invoke Tool",
+      "tool": "Restaurant Finder",
+      "tool_input": {
+        "city": "Paris"
+      }
+    }
+  ],
+  "tools": [
+    {
+      "tool": "Itinerary Generator",
+      "output": "Day 1: Eiffel Tower, Le Jules Verne. Day 2: Louvre Museum, Angelina Paris. Day 3: Montmartre, wine bar."
+    },
+    {
+      "tool": "Restaurant Finder",
+      "output": "Le Jules Verne, Angelina Paris, local wine bars"
+    }
+  ]
+}
